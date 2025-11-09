@@ -51,4 +51,18 @@ const ChatApp: React FC = () => {
   return (
     <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
       <h1>Simple Chat App</h1>
+      <div style={{ marginBottom: '10px' }}>
+        <label>Username: </label>
+        <input 
+          type="text"
+          value={username}
+          onChange={(e) =>
+            setUsername(e.target.value)}
+          style={{ margiLeft: '10px' }}
+          />
+      </div>
+      <div 
+        style= {{
+          height: '300px',
+          border: '1px so
       
