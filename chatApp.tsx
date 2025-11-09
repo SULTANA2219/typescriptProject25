@@ -24,4 +24,31 @@ const ChatApp: React FC = () => {
                 sender: 'User2',
                 timestamp: new Date(),
               };
-              setMessages((prev) => [...prev, moc
+              setMessages((prev) => [...prev, mockMessage]);
+            }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const sendMessage = () => {
+    if(input.trim()) {
+      const newMessage: Message = {
+        id: Date.now(),
+        text: input,
+        sender: username,
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev. newMessage]);
+      setInput('');
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if(e.key === 'Enter') {
+      sendMessage();
+    }
+  };
+
+  return (
+    <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
+      <h1>Simple Chat App</h1>
+      
