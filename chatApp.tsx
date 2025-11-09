@@ -64,5 +64,42 @@ const ChatApp: React FC = () => {
       <div 
         style= {{
           height: '300px',
-          border: '1px so
+          border: '1px solid #ccc',
+          overFlowY: 'scroll',
+          padding: '10px',
+          marginBottom: '10px',
+        }}
+        >
+        {messages.map((msg) => (
+          <div key={msg.id}
+            style={{ marginBottom: '10px' }}>
+          <strong>{msg.sender}:</strong>
+            {msg.text}
+          <small style={{ marginLeft: '10px', color: '#888' }}>
+          
+            {msg.timestamp.toLocateTimeString()}
+          </small>
+          </div>
+          ))}
+      </div>
+      <div>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) =>
+          setInput(e.target.value)}
+        onKeyPress={handleKeyPress}
+        placeholder="Type a message..."
+        styel={{ width: '80%', padding: '5px' }}
+        />
+      <button onClick={sendMessage}
+        style={{ messageLeft: '10px' }}>
+      Send
+      </button>
+      </div>
+    </div>
+    );
+};
+
+export default ChatApp;
       
