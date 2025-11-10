@@ -54,5 +54,38 @@ const App:React.FC = () => {
 
   return (
     <div className="app">
-    
+    <h1>Weather Dashboard</h1>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text"
+          value={city}
+          onChange={(e) =>
+            setCity(e.target.value)}
+          placeholder="Enter city name"
+          />
+        <button type="submit">Get Weather</button>
+      </form>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error:{error}</p>
+        {weather && (
+      <div className="weather-info">
+        <h2>
+          {weather.name}
+        </h2>
+        <img 
+          src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+
+          alt={weather.weather[0].description}
+          />
+        <p>Temperature: {weather.main.temp}°C</p>
+        <p>Description: {weather.weather[0].description}°</p>
+        <p>Humidity: {weather.main.humidity}%</p>
+        <p>Pressure: {weather.main.pressure}hPa</p>
+        <p>Wind Speed: {weather.wind.speed}m/s</p>
+      </div>
+      )}
     </div>
+    );
+};
+
+export default App;
